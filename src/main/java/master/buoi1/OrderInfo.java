@@ -1,4 +1,4 @@
-package hong.buoi1;
+package master.buoi1;
 
 public class OrderInfo {
     private String name;
