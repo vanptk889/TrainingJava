@@ -35,63 +35,75 @@ public class BT4 {
         orderInfo = new OrderInfo();
         Scanner in = new Scanner(System.in);
         System.out.print("Mã CK: ");
-        orderInfo.setSymbol(in.nextLine());
+        String symbol3 = in.nextLine();
+        orderInfo.setSymbol(symbol3);
         Set<Map.Entry<String, OrderInfo>> set = map.entrySet();
         for (Map.Entry<String, OrderInfo> orderInfoEntry : set ){ //orderInfoEntry là map
             OrderInfo value = orderInfoEntry.getValue(); //gán giá trị cho đối tượng value, ko cần khới tạo đối tượng value nữa. value là đối tượng
-            if (orderInfo.getSymbol().equals(value.getSymbol())) {
+            if (symbol3.equals(value.getSymbol())) {
                 System.out.println("Mã đã tồn tại!");
                 System.out.print("Nhập lại mã CK: ");
-                orderInfo.setSymbol(in.nextLine());
+                String symbol3a = in.nextLine();
+                orderInfo.setSymbol(symbol3a);
             } else {
                 System.out.println("Thêm thành công!");
             }
             break;
         }
         System.out.print("Giá đặt: ");
-        orderInfo.setPrice(in.nextFloat());
+        float price3 = in.nextFloat();
+        orderInfo.setPrice(price3);
         System.out.print("Khối lượng: ");
-        orderInfo.setQuantity(in.nextInt());
+        int volume3 = in.nextInt();
+        orderInfo.setQuantity(volume3);
         System.out.print("Giá khớp: ");
-        orderInfo.setMatchedPrice(in.nextFloat());
-        System.out.print("");
-        orderInfo.setStatus(in.nextLine());
+        float matchedPrice3 = in.nextFloat();
+        orderInfo.setMatchedPrice(matchedPrice3);
         System.out.print("Trạng thái: ");
-        orderInfo.setStatus(in.nextLine());
-        if (orderInfo.getStatus().equals(listStatus)) {
+        String status3 = in.nextLine();
+        orderInfo.setStatus(status3);
+        if (listStatus.contains(status3)) {
+        } else {
             System.out.println("Trạng thái không hợp lệ, mời nhập lại trạng thái: ");
-            orderInfo.setStatus(in.nextLine());
+            String status3a = in.nextLine();
+            orderInfo.setStatus(status3a);
         }
         map.put("TC03", orderInfo);
 
         orderInfo = new OrderInfo();
         System.out.print("Mã CK: ");
-        orderInfo.setSymbol(in.nextLine());
+        String symbol4 = in.nextLine();
+        orderInfo.setSymbol(symbol4);
         for (Map.Entry<String, OrderInfo> orderInfoEntry : set ){ //orderInfoEntry là map
             OrderInfo value = orderInfoEntry.getValue(); //gán giá trị cho đối tượng value, ko cần khới tạo đối tượng value nữa. value là đối tượng
-            if (orderInfo.getSymbol().equals(value.getSymbol())) {
+            if (symbol4.equals(value.getSymbol())) {
                 System.out.println("Mã đã tồn tại!");
                 System.out.print("Nhập lại mã CK: ");
-                orderInfo.setSymbol(in.nextLine());
+                String symbol4a = in.nextLine();
+                orderInfo.setSymbol(symbol4a);
             } else {
                 System.out.println("Thêm thành công!");
             }
             break;
         }
         System.out.print("Giá đặt: ");
-        orderInfo.setPrice(in.nextFloat());
+        float price4 = in.nextFloat();
+        orderInfo.setPrice(price4);
         System.out.print("Khối lượng: ");
-        orderInfo.setQuantity(in.nextInt());
+        int volume4 = in.nextInt();
+        orderInfo.setQuantity(volume4);
         System.out.print("Giá khớp: ");
-        orderInfo.setMatchedPrice(in.nextFloat());
-        System.out.print("");
-        orderInfo.setStatus(in.nextLine());
+        float matchedPrice4 = in.nextFloat();
+        orderInfo.setMatchedPrice(matchedPrice4);
         System.out.print("Trạng thái: ");
-        orderInfo.setStatus(in.nextLine());
+        String status4 = in.nextLine();
+        orderInfo.setStatus(status4);
 
-        if (listStatus.contains(orderInfo.getStatus())) {
+        if (listStatus.contains(status4)) {
+        } else {
             System.out.println("Trạng thái không hợp lệ, mời nhập lại trạng thái: ");
-            orderInfo.setStatus(in.nextLine());
+            String status4a = in.nextLine();
+            orderInfo.setStatus(status4a);
         }
         map.put("TC04", orderInfo);
 
