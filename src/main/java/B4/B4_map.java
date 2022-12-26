@@ -4,8 +4,9 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.Set;
+import java.util.List;
+import java.util.ArrayList;
 
-import java.util.*;
 
 public class B4_map {
 
@@ -31,14 +32,15 @@ public class B4_map {
 
     public static void main(String[] args) {
         B4_map b4_map=new B4_map();
-        Map<String, Object> testOrder = new LinkedHashMap<>();
-        Map<String, Object> draft = new LinkedHashMap<>();
-        int size = testOrder.size();
-        System.out.println("Nhập 2 order đầu tiên");
+        Map<String, Object> testOrder= new LinkedHashMap<String, Object>();
+        Map<String, Object> testOrder_draff= new LinkedHashMap<String, Object>();
+        System.out.println("Nhập order đầu tiên");
+        testOrder.putAll(b4_map.inputData());
+        System.out.println("Nhập order tiếp theo");
         testOrder.putAll(b4_map.inputData());
         System.out.println("Danh sách các lệnh");
         b4_map.print(testOrder);
-        System.out.println("Thêm 2 lệnh mới vào danh sách");
+        System.out.println("Thêm lệnh mới vào danh sách");
         testOrder.putAll(b4_map.inputData());
         //Tìm lệnh có mã symbol = xxx
         Scanner in = new Scanner( System.in);
@@ -50,26 +52,18 @@ public class B4_map {
         String searchStatus=in.next();
         System.out.println("Caác lệnh có trạng thái "+searchStatus+" là:");
         b4_map.checkStatus(testOrder,searchStatus);
-
-
-
-
-
-
-
     }
     public Map<String, Object> inputData(){
         Scanner in = new Scanner( System.in);
-        Map<String, Object> testOrder = new LinkedHashMap<>();
-        System.out.print( "Nhập dữ bao nhiêu lần?: " );
-        int i = in.nextInt();
-        for (int i1=0; i1<=i; i1++){
+        Map<String, Object> testOrder = new LinkedHashMap<String, Object>();
+//        System.out.print( "Nhập dữ bao nhiêu lần?: " );
+//        int i = in.nextInt();
+//        for (int i1=0; i1<=i; i1++){
 
             System.out.print( "key: " );
             String key = in.next();
             System.out.print( "nhập symbol: " );
             String symbol =in.next();
-            String checkDuplicate = symbol;
             System.out.print( "nhập giá đặt mua: " );
             Float orderPrice =in.nextFloat();
             System.out.print( "nhập số lượng: " );
@@ -85,7 +79,8 @@ public class B4_map {
             ((OrderInfor) value).setQuantity(quantity);
             ((OrderInfor) value).setMatchPrice(matchPrice);
             ((OrderInfor) value).setStatusOrder(status);
-            testOrder.put(key,value);}
+            testOrder.put(key,value);
+//    }
         return testOrder;
     }
     public void print (Map<String,Object> testMap) {
@@ -108,7 +103,7 @@ public class B4_map {
 //            String key = map.getKey();
             Object valuePrint = map.getValue();
             String symbol =((OrderInfor) valuePrint).getSymbol();
-            if (symbol == searchSymbol){
+            if (symbol.equals(searchSymbol)) {
                 int quantity=((OrderInfor) valuePrint).getQuantity();
                 float orderPrice =((OrderInfor) valuePrint).getOrderPrice();
                 System.out.println("Tồn tại lệnh đặt "+searchSymbol+" với số lượng "+quantity+" với giá đặt "+orderPrice);
@@ -119,7 +114,6 @@ public class B4_map {
 
     public void checkStatus (Map<String,Object> testMap, String searchStatus) {
         List<String> listResult = new ArrayList<String>();
-
         Set<Map.Entry<String, Object>> set = testMap.entrySet();
         for (Map.Entry<String, Object> map : set ){
             String key = map.getKey();
@@ -127,8 +121,7 @@ public class B4_map {
             String statusOrder=((OrderInfor) valuePrint).getStatusOrder();
             String symbol =((OrderInfor) valuePrint).getSymbol();
             float orderPrice =((OrderInfor) valuePrint).getOrderPrice();
-
-            if (statusOrder == searchStatus){
+            if (statusOrder.equals(searchStatus)){
                 System.out.println("Key: "+key+" Symbol: "+symbol+" order Price: "+orderPrice+" Status: "+statusOrder);
             }
         }
