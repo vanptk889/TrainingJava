@@ -1,4 +1,4 @@
-package B3;
+package Lession3;
 /*
 Khai báo list chứa danh sách các mã chứng khoán. MBB,TCB,VCB,TPB,VPB,OCB
 Hiển thị các phần tử có trong List vừa nhập: sử dụng Iterator và ListIterator, for, for cải biến.

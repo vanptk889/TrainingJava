@@ -1,4 +1,4 @@
-package B3;
+package Lession3;
 
 import java.util.HashSet;
 import java.util.Iterator;
