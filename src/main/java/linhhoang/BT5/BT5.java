@@ -1,8 +1,5 @@
-package BT5;
+package linhhoang.BT5;
 
-import linhhoang.BTBuoi4.OrderInfo;
-
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
@@ -29,5 +26,4 @@ public class BT5 {
             System.out.println(key+", "+value.getUserName()+", "+value.getPassword());
         }
     }
-
 }

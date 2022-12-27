@@ -1,4 +1,4 @@
-package BT5;
+package linhhoang.BT5;
 
 public class UserInfo {
     private String userName;
