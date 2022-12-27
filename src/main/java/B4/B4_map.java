@@ -1,11 +1,6 @@
 package B4;
 
-import java.util.LinkedHashMap;
-import java.util.Map;
-import java.util.Scanner;
-import java.util.Set;
-import java.util.List;
-import java.util.ArrayList;
+import java.util.*;
 
 
 public class B4_map {
@@ -41,24 +36,43 @@ public class B4_map {
         System.out.println("Danh sách các lệnh");
         b4_map.print(testOrder);
         System.out.println("Thêm lệnh mới vào danh sách");
-        testOrder.putAll(b4_map.inputData());
+        // Check trùng mã khi nhập vào không
+        testOrder_draff.putAll(b4_map.inputData());
+        b4_map.checkDuplicateSymbol(testOrder_draff,testOrder);
+        testOrder.putAll(testOrder_draff);
+        testOrder_draff.clear();
         //Tìm lệnh có mã symbol = xxx
         Scanner in = new Scanner( System.in);
         System.out.println("Nhập mã bạn muốn tìm: ");
         String searchSymbol=in.next();
         b4_map.checkSymbol(testOrder,searchSymbol);
-        //In lệnh cos status = xxx
+        //In lệnh có status = xxx
         System.out.println("Nhập trạng thái lệnh bạn muốn tìm: ");
         String searchStatus=in.next();
         System.out.println("Caác lệnh có trạng thái "+searchStatus+" là:");
         b4_map.checkStatus(testOrder,searchStatus);
     }
+    public void checkDuplicateSymbol (Map<String,Object> map1, Map<String,Object> map2) {
+Set<Map.Entry<String, Object>> set = map1.entrySet();
+        for (Map.Entry<String, Object> map : set ){
+            Object value1 = map.getValue();
+            String symbol =((OrderInfor) value1).getSymbol();
+            if (map2.containsValue(symbol)) {
+                System.out.println("Mã "+symbol+" đã tồn tại");
+            } else {
+                System.out.println("Thêm mã "+symbol+"thành công");}
+        }
+    }
     public Map<String, Object> inputData(){
         Scanner in = new Scanner( System.in);
         Map<String, Object> testOrder = new LinkedHashMap<String, Object>();
-//        System.out.print( "Nhập dữ bao nhiêu lần?: " );
-//        int i = in.nextInt();
-//        for (int i1=0; i1<=i; i1++){
+        List<String> listStatus = new LinkedList<String>();
+        listStatus.add("New");
+        listStatus.add("Pending New");
+        listStatus.add("Partially Filled");
+        listStatus.add("Filled");
+        listStatus.add("Reject");
+        listStatus.add("Canceled");
 
             System.out.print( "key: " );
             String key = in.next();
@@ -72,7 +86,10 @@ public class B4_map {
             Float matchPrice =in.nextFloat();
             System.out.print( "nhập trạng thái lệnh: " );
             String status =in.next();
-
+            if (listStatus.contains(status)) {
+                System.out.println("Trạng thái lệnh không hợp lệ, xin mời nhập lại: ");
+                status = in.next();
+            }
             Object value = new OrderInfor();
             ((OrderInfor) value).setSymbol(symbol);
             ((OrderInfor) value).setOrderPrice(orderPrice);
@@ -113,7 +130,7 @@ public class B4_map {
         }}
 
     public void checkStatus (Map<String,Object> testMap, String searchStatus) {
-        List<String> listResult = new ArrayList<String>();
+//        List<String> listResult = new ArrayList<String>();
         Set<Map.Entry<String, Object>> set = testMap.entrySet();
         for (Map.Entry<String, Object> map : set ){
             String key = map.getKey();
