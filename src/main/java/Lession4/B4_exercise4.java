@@ -66,11 +66,17 @@ B4_exercise4 {
         Float orderPrice = in.nextFloat();
         System.out.print("nhập số lượng: ");
         int quantity = in.nextInt();
+        //Chú ý: lô lẻ: từ 1-99, lô chẵn:  >=100 và chia hết cho 100
+        while (quantity <= 0 || (quantity >= 100 && quantity % 100 != 0)) {
+            System.out.println("Khối lượng cần t 1-99 hoặc >=100 và chia hết cho 100, xin mời nhập lại: ");
+            quantity = in.nextInt();
+        }
+//
         System.out.print("nhập giá khớp: ");
         Float matchPrice = in.nextFloat();
         System.out.print("nhập trạng thái lệnh: ");
         String status = in.next();
-        if (listStatus.contains(status)) {
+        while (listStatus.contains(status)) {
             System.out.println("Trạng thái lệnh không hợp lệ, xin mời nhập lại: ");
             status = in.next();
         }
