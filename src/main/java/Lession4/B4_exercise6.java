@@ -70,24 +70,20 @@ public class B4_exercise6 {
             String maDM = map.getKey();
             List listSymbol = map.getValue();
             if (maDM.contains(danhMuc)) {
-                List<String> listSymbolDraft = new LinkedList<String>();
-                listSymbolDraft.addAll(listSymbol);
-                listSymbolDraft.add(newSymbol);
-                inputMap.replace(maDM, listSymbolDraft);
+                listSymbol.add(newSymbol);
+                inputMap.replace(maDM, listSymbol);
             }
         }
     }
 
-    public void deleteSymbol(Map<String, List> inputMap, String danhMuc, String Symbol) {
+    public void deleteSymbol(Map<String, List> inputMap, String danhMuc, String symbol) {
         Set<Map.Entry<String, List>> set = inputMap.entrySet();
         for (Map.Entry<String, List> map : set) {
             String maDM = map.getKey();
             List listSymbol = map.getValue();
             if (maDM.contains(danhMuc)) {
-                List<String> listSymbolDraft = new LinkedList<String>();
-                listSymbolDraft.addAll(listSymbol);
-                listSymbolDraft.remove(Symbol);
-                inputMap.replace(maDM, listSymbolDraft);
+                listSymbol.remove(symbol);
+                inputMap.replace(maDM, listSymbol);
             }
         }
     }
@@ -98,13 +94,10 @@ public class B4_exercise6 {
             String maDM = map.getKey();
             List listSymbol = map.getValue();
             if (listSymbol.contains(oldsymbol)) {
-                List<String> listSymbolDraft = new LinkedList<String>();
-                listSymbolDraft.addAll(listSymbol);
-                listSymbolDraft.remove(oldsymbol);
-                listSymbolDraft.add(newSymbol);
-                inputMap.replace(maDM, listSymbolDraft);
+                listSymbol.remove(oldsymbol);
+                listSymbol.add(newSymbol);
+                inputMap.replace(maDM, listSymbol);
             }
         }
     }
-
 }
