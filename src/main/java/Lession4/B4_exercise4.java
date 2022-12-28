@@ -3,7 +3,8 @@ package Lession4;
 import java.util.*;
 
 
-public class B4_exercise4 {
+public class
+B4_exercise4 {
 
     public static void main(String[] args) {
         B4_exercise4 b4exercise4_ = new B4_exercise4();
