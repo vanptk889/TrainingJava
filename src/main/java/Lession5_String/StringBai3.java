@@ -1,7 +1,4 @@
 package Lession5_String;
-
-import static javax.xml.stream.XMLStreamConstants.SPACE;
-
 //Cho chuối ký tự sau:
 //        “hoc java     co ban den nang " + "      \n cao ”
 //        Remove khoảng trắng ở đầu/cuối chuỗi
@@ -18,6 +15,8 @@ public class StringBai3 {
         data = data.replaceAll("\n", "");
         //xóa khoảng trắng thừa
         data = data.replaceAll("\\s\\s+", " ");
+        //In chuoi
+        System.out.println("Chuỗi dữ liệu: "+ data);
 
         // Đếm số tu co trong chuoi
 //        int no = 0;
@@ -28,14 +27,12 @@ public class StringBai3 {
 //        }
         String draftData = data.replace(" ", "");
         if (data.length() != 0 && draftData.length() != 0) {
-            int no = data.length() - draftData.length() + 1;
+            int no = data.length()- draftData.length()  + 1;
             System.out.println("Số từ có trong chuỗi = " + no);
         } else {
-            System.out.println("Chuỗi không có từ nào");
-        }
+            System.out.println("Chuỗi không có từ nào");}
         //Đếm so ky tu co trong chuoi:
-        System.out.println("Số ky tư co trong chuoi là: " + data.length());
-
+        System.out.println("Số ky tư co trong chuoi là: "+ data.length());
     }
 
 }
