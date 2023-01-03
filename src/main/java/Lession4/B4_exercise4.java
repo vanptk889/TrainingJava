@@ -76,7 +76,7 @@ B4_exercise4 {
         Float matchPrice = in.nextFloat();
         System.out.print("nhập trạng thái lệnh: ");
         String status = in.next();
-        while (listStatus.contains(status)) {
+        while (!listStatus.contains(status)) {
             System.out.println("Trạng thái lệnh không hợp lệ, xin mời nhập lại: ");
             status = in.next();
         }
