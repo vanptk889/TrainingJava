@@ -26,7 +26,7 @@ import java.util.*;
 public class Bai4 {
     private static int num = 0;
     private static final Scanner scanner = new Scanner(System.in);
-    private static List<String> listSymbol = new ArrayList<>();
+    private static List<String> listSymbol = new ArrayList<String>();
 
     public static void main(String[] args) {
 
