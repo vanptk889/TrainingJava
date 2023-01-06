@@ -6,24 +6,21 @@ import java.util.Set;
 
 public class BT5 {
     public static void main(String[] args) {
-        Map<String, UserInfo> map = new LinkedHashMap<>();
-        UserInfo userInfo = new UserInfo();
-        userInfo.setUserName("thuyquynh");
-        userInfo.setPassword("12345678");
-        map.put("TC01", userInfo);
+        Map<String, String> map = new LinkedHashMap<>();
+        map.put("thuyquynh", "12345678");
+        map.put("vanpham", "23457890");
+        print(map);
+        map.replace("thuyquynh","123456789");
+        System.out.println("Danh sách mới: ");
+        print(map);
+    }
 
-        userInfo = new UserInfo();
-        userInfo.setUserName("vanpham");
-        userInfo.setPassword("23457890");
-        userInfo.setPassword("123456789");
-        map.put("TC02", userInfo);
-
-        System.out.println("TC, "+"UserName, "+"Password");
-        Set<Map.Entry<String, UserInfo>> set = map.entrySet();
-        for (Map.Entry<String, UserInfo> userInfoEntry : set ){
-            String key = userInfoEntry.getKey();
-            UserInfo value = userInfoEntry.getValue();
-            System.out.println(key+", "+value.getUserName()+", "+value.getPassword());
+    public static void print (Map < String, String > mapName){
+        Set<Map.Entry<String, String>> set = mapName.entrySet();
+        for (Map.Entry<String, String> map : set) {
+                String key = map.getKey();
+                String value = map.getValue();
+                System.out.println("username: " + key + ", password: " + value);
         }
     }
 }

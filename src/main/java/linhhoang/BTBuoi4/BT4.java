@@ -38,8 +38,8 @@ public class BT4 {
         String symbol3 = in.nextLine();
         orderInfo.setSymbol(symbol3);
         Set<Map.Entry<String, OrderInfo>> set = map.entrySet();
-        for (Map.Entry<String, OrderInfo> orderInfoEntry : set ){ //orderInfoEntry là map
-            OrderInfo value = orderInfoEntry.getValue(); //gán giá trị cho đối tượng value, ko cần khới tạo đối tượng value nữa. value là đối tượng
+        for (Map.Entry<String, OrderInfo> orderInfoEntry : set ){
+            OrderInfo value = orderInfoEntry.getValue();
             if (symbol3.equals(value.getSymbol())) {
                 System.out.println("Mã đã tồn tại!");
                 System.out.print("Nhập lại mã CK: ");
@@ -65,8 +65,7 @@ public class BT4 {
         if (listStatus.contains(status3)) {
         } else {
             System.out.println("Trạng thái không hợp lệ, mời nhập lại trạng thái: ");
-            String status3a = in.next();
-            orderInfo.setStatus(status3a);
+            status3 = in.next();
         }
         map.put("TC03", orderInfo);
 
